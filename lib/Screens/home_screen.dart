@@ -55,65 +55,56 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           SizedBox(
-            height: 20.h,
+            height: 40.h,
           ),
           slider(),
           SizedBox(
-            height: 20.h,
+            height: 40.h,
           ),
-          Expanded(
-            child: Container(
-              height: double.maxFinite,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    AppColors.colorBackground,
-                    AppColors.colorPrimaryLightest,
-                  ],
-                  // Three colors: blue, green, and red
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  tileMode: TileMode.clamp,
+          Container(
+            height: 100.h,
+            width: double.maxFinite,
+            margin: EdgeInsets.symmetric(horizontal: 20),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              color: Colors.white,
+              boxShadow: const [
+                BoxShadow(
+                  color: AppColors.colorPrimary,
+                  spreadRadius: -2.0,
+                  blurRadius: 40,
+                  offset: Offset(0, 1), // changes position of shadow
                 ),
-              ),
-              child: Column(
-                children: [
-                  Container(
-                    height: 100.h,
-                    width: double.maxFinite,
-                    margin: EdgeInsets.symmetric(horizontal: 30.w),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 40.h,
+          ),
+          Container(
+            height: 180,
+            child: ListView.builder(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: 6,
+              itemBuilder: (BuildContext context, int index) {
+                if(index == 5){
+                  return SizedBox(
+                    width: 20,
+                  );
+                }
+                else{
+                  return Container(
+                    height: 50.h,
+                    width: 120.w,
+                    margin: EdgeInsets.only(left: 20),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16),
-                      color: Colors.white,
-                      boxShadow: const [
-                        BoxShadow(
-                          color: AppColors.colorPrimary,
-                          spreadRadius: -2.0,
-                          blurRadius: 40,
-                          offset: Offset(0, 1), // changes position of shadow
-                        ),
-                      ],
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20)
                     ),
-                  ),
-                  Expanded(
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 5,
-                      itemBuilder: (BuildContext context, int index) {
-                        return Container(
-                          height: 50.h,
-                          width: 100.w,
-                          margin: EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            color: Colors.white
-                          ),
-                        );
-                      },
-                    ),
-                  )
-                ],
-              ),
+                  );
+                }
+              },
             ),
           )
         ],
@@ -133,31 +124,10 @@ class _HomeScreenState extends State<HomeScreen> {
             color: AppColors.colorPrimary,
             gradient: LinearGradient(
               colors: [
-                AppColors.colorPrimaryLightest,
-                AppColors.colorPrimaryLighter,
-                AppColors.colorPrimaryLightest,
-              ],
-              // Three colors: blue, green, and red
-              begin: Alignment.topCenter,
-              end: Alignment.bottomLeft,
-              stops: [0.1, 0.4, 0.8],
-              // Adjust stops for a smooth transition
-              tileMode: TileMode.clamp,
-            ),
-          ),
-        ),
-        Container(
-          height: 250,
-          width: 200,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(40),
-            color: AppColors.colorPrimary,
-            gradient: LinearGradient(
-              colors: [
-                AppColors.colorPrimaryLightest,
-                AppColors.colorPrimaryLighter,
-                AppColors.colorPrimaryLighter,
-                AppColors.colorPrimaryLightest,
+                AppColors.colorPrimary,
+                AppColors.colorPrimaryLight,
+                AppColors.colorPrimaryLight,
+                AppColors.colorPrimary,
               ],
               // Three colors: blue, green, and red
               begin: Alignment.topCenter,
@@ -176,10 +146,32 @@ class _HomeScreenState extends State<HomeScreen> {
             color: AppColors.colorPrimary,
             gradient: LinearGradient(
               colors: [
-                AppColors.colorPrimaryLightest,
-                AppColors.colorPrimaryLighter,
-                AppColors.colorPrimaryLighter,
-                AppColors.colorPrimaryLightest,
+                AppColors.colorPrimary,
+                AppColors.colorPrimaryLight,
+                AppColors.colorPrimaryLight,
+                AppColors.colorPrimary,
+              ],
+              // Three colors: blue, green, and red
+              begin: Alignment.topCenter,
+              end: Alignment.bottomLeft,
+              stops: [0.0, 0.3, 0.7, 0.9],
+              // Adjust stops for a smooth transition
+              tileMode: TileMode.clamp,
+            ),
+          ),
+        ),
+        Container(
+          height: 250,
+          width: 200,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(40),
+            color: AppColors.colorPrimary,
+            gradient: LinearGradient(
+              colors: [
+                AppColors.colorPrimary,
+                AppColors.colorPrimaryLight,
+                AppColors.colorPrimaryLight,
+                AppColors.colorPrimary,
               ],
               // Three colors: blue, green, and red
               begin: Alignment.topCenter,
@@ -192,7 +184,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ],
       options: CarouselOptions(
-          height: 250.h,
+          height: 200.h,
           enlargeCenterPage: true,
           autoPlay: false,
           aspectRatio: 9 / 16,
